@@ -144,10 +144,12 @@
 
   // Máscaras simples
   const so = (v) => v.replace(/\D/g, '');
+  // Telefone: tira o +55 do Brasil quando a pessoa digita ou cola com ele
+  const semPais = (d) => (d.length > 11 && d.startsWith('55') ? d.slice(2) : d);
   function mascaraCep(el) { el.addEventListener('input', () => { const d = so(el.value).slice(0, 8); el.value = d.length > 5 ? `${d.slice(0, 5)}-${d.slice(5)}` : d; }); }
   function mascaraFone(el) {
     el.addEventListener('input', () => {
-      const d = so(el.value).slice(0, 11);
+      const d = semPais(so(el.value)).slice(0, 11);
       el.value = d.length > 10 ? `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}` : d.length > 6 ? `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}` : d.length > 2 ? `(${d.slice(0, 2)}) ${d.slice(2)}` : d;
     });
   }
@@ -214,7 +216,7 @@
 
   // Pedido "Quero a fibra em casa"
   const janela = $('#janela');
-  $('#sel-plano').innerHTML = '<option value="">Ainda não sei</option>' + PLANOS.map((p) => `<option>${p.grupo} ${megaTexto(p.mega)} (${reais(p.preco)})</option>`).join('');
+  $('#sel-plano').innerHTML = '<option value="">Ainda não sei</option>' + PLANOS.map((p) => `<option value="${p.grupo} ${megaTexto(p.mega)} (${reais(p.preco)})">${megaTexto(p.mega)} · ${reais(p.preco)}</option>`).join('');
   mascaraFone($('#form-pedido [name=telefone]'));
   function abrirPedido() {
     $('#janela-end').textContent = textoEndereco();
@@ -228,7 +230,7 @@
     const f = e.target;
     const erro = (t) => { $('#pedido-erro').textContent = t; $('#pedido-erro').hidden = false; };
     if (f.nome.value.trim().length < 3) return erro('Escreva o seu nome completo.');
-    const tel = so(f.telefone.value);
+    const tel = semPais(so(f.telefone.value));
     if (tel.length < 10) return erro('Confira o WhatsApp, com DDD.');
     if (!f.aceite.checked) return erro('Marque que concorda em ser chamado.');
     const b = $('#pedido-botao'); b.disabled = true; b.textContent = 'Enviando...';

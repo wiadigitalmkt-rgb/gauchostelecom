@@ -26,6 +26,7 @@
 }
 
 * { box-sizing: border-box; margin: 0; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; scroll-padding-top: 84px; }
 body { font-family: I, system-ui, sans-serif; color: var(--tinta); background: var(--branco); line-height: 1.55; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; display: block; }
@@ -234,10 +235,13 @@ details p { color: var(--suave); padding: 0 0 20px; }
 .credito img { width: 64px; height: auto; margin: 0; filter: brightness(0) invert(1); opacity: .85; }
 
 /* janela do pedido */
-.janela { border: 0; border-radius: 26px; padding: 0; width: min(520px, 100% - 24px); max-height: calc(100dvh - 24px); }
+.janela { margin: auto; border: 0; border-radius: 26px; padding: 0; width: min(560px, 100% - 24px); max-height: calc(100dvh - 16px); overflow: auto; }
 .janela::backdrop { background: rgba(6, 30, 20, .6); }
-.janela form, .pedido-ok { padding: 30px; display: grid; gap: 14px; }
-.janela h2 { font-size: 1.7rem; padding-right: 70px; }
+.janela form, .pedido-ok { padding: 24px 28px; display: grid; gap: 10px; }
+.janela .campos-2 { grid-template-columns: 1fr 1fr; gap: 10px; }
+.janela input, .janela select { min-height: 42px; }
+.janela label { gap: 4px; font-size: .88rem; }
+.janela h2 { font-size: 1.5rem; padding-right: 70px; }
 .janela-sub { color: var(--suave); margin-top: -6px; }
 .janela-end { background: var(--nevoa); border-radius: 12px; padding: 10px 14px; font-weight: 600; font-size: .92rem; }
 .janela-end:empty { display: none; }

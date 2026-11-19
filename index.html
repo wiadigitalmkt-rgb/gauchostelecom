@@ -237,10 +237,14 @@
       <p class="janela-sub">Preencha e a gente chama você no WhatsApp para agendar a instalação.</p>
       <p class="janela-end" id="janela-end"></p>
       <label>Nome completo<input name="nome" autocomplete="name" required maxlength="80" /></label>
-      <label>WhatsApp<input name="telefone" inputmode="tel" autocomplete="tel" placeholder="(51) 90000-0000" required maxlength="16" /></label>
-      <label>Complemento<input name="complemento" placeholder="Casa, apto, bloco" maxlength="80" /></label>
-      <label>Plano que interessa<select name="plano" id="sel-plano"></select></label>
-      <label>Melhor horário para falar<select name="periodo"><option>Tanto faz</option><option>Manhã</option><option>Tarde</option><option>Noite</option></select></label>
+      <div class="campos-2">
+        <label>WhatsApp<input name="telefone" inputmode="tel" autocomplete="tel" placeholder="(51) 90000-0000" required maxlength="20" /></label>
+        <label>Complemento<input name="complemento" placeholder="Casa, apto, bloco" maxlength="80" /></label>
+      </div>
+      <div class="campos-2">
+        <label>Plano que interessa<select name="plano" id="sel-plano"></select></label>
+        <label>Melhor horário<select name="periodo"><option>Tanto faz</option><option>Manhã</option><option>Tarde</option><option>Noite</option></select></label>
+      </div>
       <label class="escondido" aria-hidden="true">Site<input name="site_web" tabindex="-1" autocomplete="off" /></label>
       <label class="aceite"><input type="checkbox" name="aceite" required /> Concordo em ser chamado pela Gaúchos Telecom no WhatsApp ou por telefone sobre a instalação.</label>
       <p class="erro" id="pedido-erro" role="alert" hidden></p>
