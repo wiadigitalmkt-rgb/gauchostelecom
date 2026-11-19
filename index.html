@@ -1,690 +1,258 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gaúchos Telecom | Provedor de Internet 100% Fibra Óptica</title>
-
-  <!-- OTIMIZAÇÃO DE CARREGAMENTO DO BANNER -->
-  <link rel="preload" as="image" href="bannerprincipal.webp" fetchpriority="high" />
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            heading: ['Plus Jakarta Sans', 'sans-serif'],
-            sans: ['Inter', 'sans-serif'],
-          },
-          colors: {
-            gaucho: {
-              red: '#FF0000',       /* Vermelho vivo oficial */
-              redHover: '#CC0000',  
-              redNeon: '#FF1A1A',   
-              bgDark: '#0B0C0E',    /* Fundo escuro */
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    /* ESTILO IDENTICO AO MODELO VERDE (PORÊM EM VERMELHO NEON) */
-    .card-plan-neon {
-      background-color: rgba(15, 16, 20, 0.85);
-      border: 1px solid rgba(255, 0, 0, 0.35);
-      box-shadow: 0 0 12px rgba(255, 0, 0, 0.15), inset 0 0 12px rgba(255, 0, 0, 0.05);
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    /* EFEITO AO PASSAR O MOUSE */
-    .card-plan-neon:hover {
-      transform: translateY(-8px) scale(1.01);
-      border-color: rgba(255, 0, 0, 0.85);
-      box-shadow: 0 12px 30px rgba(255, 0, 0, 0.35), inset 0 0 18px rgba(255, 0, 0, 0.15);
-    }
-
-    /* BOTÃO ESTILO GLOW NEON */
-    .btn-contratar-neon {
-      background: linear-gradient(180deg, #FF1A1A 0%, #CC0000 100%);
-      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
-      transition: all 0.25s ease;
-    }
-    .btn-contratar-neon:hover {
-      background: linear-gradient(180deg, #FF3333 0%, #E60000 100%);
-      box-shadow: 0 6px 20px rgba(255, 0, 0, 0.7);
-      transform: translateY(-1px);
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gaúchos Telecom | Internet 100% fibra óptica em Canoas e Viamão</title>
+  <meta name="description" content="Internet 100% fibra óptica de 400 MEGA a 1 GIGA em Canoas e Viamão. De gaúcho pra gaúcho. Planos a partir de R$ 89,90 por mês." />
+  <meta name="theme-color" content="#0b4a30" />
+  <meta property="og:title" content="Gaúchos Telecom: fibra de gaúcho pra gaúcho" />
+  <meta property="og:description" content="Fibra óptica de 400 MEGA a 1 GIGA em Canoas e Viamão, a partir de R$ 89,90 por mês." />
+  <meta property="og:image" content="/assets/logo-cor.png" />
+  <link rel="icon" type="image/png" href="/assets/logo-branca-alta.png" />
+  <link rel="stylesheet" href="/assets/site.css" />
 </head>
-<body class="font-sans antialiased text-white bg-[#0B0C0E] flex flex-col min-h-screen">
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
-  <!-- HERO SECTION COM BANNER 100% FULL WIDTH -->
-  <section id="inicio" class="relative w-full overflow-hidden bg-[#0B0C0E]">
-    
-    <!-- HEADER TRANSPARENTE COM LOGO AMPLIADA -->
-    <header class="absolute top-0 left-0 w-full z-30 py-3 px-6 sm:px-12 bg-transparent">
-      <div class="w-full max-w-[1920px] mx-auto flex items-center justify-between">
-        
-        <!-- LOGO AUMENTADA E DESTACADA -->
-        <a href="#" class="flex items-center">
-          <img src="https://i.ibb.co/qLpbRfM6/Design-sem-nome.png" alt="Gaúchos Telecom" class="h-12 sm:h-16 md:h-20 w-auto object-contain brightness-0 invert drop-shadow-md" />
-        </a>
+  <div class="faixa-bf" id="faixa-bf" hidden>
+    <p><strong>Black Friday:</strong> instalação grátis em qualquer plano para quem contratar até 30/11. <a href="#planos">Ver os planos</a></p>
+  </div>
 
-        <!-- MENU DE NAVEGAÇÃO -->
-        <nav class="hidden md:flex items-center gap-8 text-xs font-medium uppercase tracking-wider text-white">
-          <a href="#inicio" class="hover:text-gaucho-red transition-colors">Início</a>
-          <a href="#planos" class="hover:text-gaucho-red transition-colors">Planos</a>
-          <a href="#cobertura" class="hover:text-gaucho-red transition-colors">Cobertura</a>
-          <a href="#suporte" class="hover:text-gaucho-red transition-colors">Suporte</a>
-          <a href="#contato" class="hover:text-gaucho-red transition-colors">Contato</a>
-        </nav>
-
-        <!-- BOTÃO CENTRAL DO CLIENTE -->
-        <div>
-          <a href="https://wa.me/5551989687050" target="_blank" class="bg-black/60 hover:bg-black text-white font-bold text-xs sm:text-sm px-5 py-2 rounded-full border border-white/30 backdrop-blur-sm transition-all flex items-center gap-2">
-            Fale conosco <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-          </a>
-        </div>
-      </div>
-    </header>
-
-    <!-- BANNER EXPANDIDO 100% DE PONTA A PONTA -->
-    <div class="w-full relative">
-      <img src="bannerprincipal.webp" alt="Banner Gaúchos Telecom" class="w-full h-auto block object-cover" fetchpriority="high" decoding="async" />
+  <header class="topo" id="topo">
+    <div class="largura topo-dentro">
+      <a href="#inicio" class="marca" aria-label="Gaúchos Telecom, início">
+        <img src="/assets/logo-branca.png" alt="Gaúchos Telecom" width="214" height="49" />
+        <span class="selo-rs"><i aria-hidden="true"></i><span><small>de gaúcho</small>pra gaúcho</span></span>
+      </a>
+      <button class="menu-botao" id="menu-botao" aria-expanded="false" aria-controls="menu">Menu</button>
+      <nav id="menu" class="menu">
+        <a href="#planos">Planos</a>
+        <a href="#qual-plano">Qual plano?</a>
+        <a href="#cobertura">Onde chega</a>
+        <a href="#cliente">Sou cliente</a>
+        <a class="botao botao-amarelo" data-zap="Olá! Quero saber mais sobre a internet da Gaúchos Telecom." href="#">Falar no WhatsApp</a>
+      </nav>
     </div>
+  </header>
 
-  </section>
-
-  <!-- SEÇÃO DIFERENCIAIS -->
-  <section class="w-full bg-white py-5 px-4 sm:px-12 border-t-4 border-gaucho-red">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        
-        <div class="border border-red-200 rounded-2xl p-3.5 flex items-center gap-3.5 bg-white shadow-sm hover:shadow-md transition-shadow">
-          <div class="text-gaucho-red shrink-0">
-            <i data-lucide="wifi" class="w-7 h-7 stroke-[2]"></i>
+  <main id="conteudo">
+    <!-- INÍCIO -->
+    <section class="inicio" id="inicio">
+      <span class="canto canto-a" aria-hidden="true"><i></i><i></i><i></i></span>
+      <div class="largura inicio-dentro">
+        <div class="inicio-texto">
+          <p class="sobretitulo">Internet 100% fibra óptica em Canoas e Viamão</p>
+          <h1>Fibra até 1 Giga, <span>de gaúcho pra gaúcho.</span></h1>
+          <p class="inicio-sub">Conexão estável para trabalhar, estudar, jogar e assistir sem travar. Atendimento de gente daqui, pelo WhatsApp, todos os dias da semana.</p>
+          <div class="inicio-acoes">
+            <a href="#planos" class="botao botao-amarelo botao-grande">Ver os planos</a>
+            <a href="#cobertura" class="botao botao-linha botao-grande">Tem na minha rua?</a>
           </div>
-          <span class="text-[11px] font-bold text-slate-800 leading-snug">
-            Wi-fi ilimitado e roteador consignado
-          </span>
+          <ul class="inicio-fatos">
+            <li><strong>100% fibra</strong><span>até dentro da sua casa</span></li>
+            <li><strong>Wi-Fi incluso</strong><span>roteador em comodato</span></li>
+            <li><strong>Gente daqui</strong><span>no atendimento</span></li>
+          </ul>
         </div>
-
-        <div class="border border-red-200 rounded-2xl p-3.5 flex items-center gap-3.5 bg-white shadow-sm hover:shadow-md transition-shadow">
-          <div class="text-gaucho-red shrink-0">
-            <i data-lucide="headphones" class="w-7 h-7 stroke-[2]"></i>
-          </div>
-          <span class="text-[11px] font-bold text-slate-800 leading-snug">
-            Suporte humanizado
-          </span>
-        </div>
-
-        <div class="border border-red-200 rounded-2xl p-3.5 flex items-center gap-3.5 bg-white shadow-sm hover:shadow-md transition-shadow">
-          <div class="text-gaucho-red shrink-0">
-            <i data-lucide="network" class="w-7 h-7 stroke-[2]"></i>
-          </div>
-          <span class="text-[11px] font-bold text-slate-800 leading-snug">
-            Conexão rápida 100% fibra óptica
-          </span>
-        </div>
-
-        <div class="border border-red-200 rounded-2xl p-3.5 flex items-center gap-3.5 bg-white shadow-sm hover:shadow-md transition-shadow">
-          <div class="text-gaucho-red shrink-0">
-            <i data-lucide="shield-check" class="w-7 h-7 stroke-[2]"></i>
-          </div>
-          <span class="text-[11px] font-bold text-slate-800 leading-snug">
-            Navegue com rapidez e segurança
-          </span>
-        </div>
-
+        <aside class="inicio-plano" aria-label="Plano em destaque">
+          <p class="ip-grupo">Gaúcho Mais+</p>
+          <p class="ip-mega">400 <span>MEGA</span></p>
+          <p class="ip-preco"><span>R$</span> 89,90 <small>por mês</small></p>
+          <p class="ip-nota">Com fidelidade de 12 meses</p>
+          <a class="botao botao-amarelo" data-zap="Olá! Quero contratar o Gaúcho Mais+ de 400 MEGA por R$ 89,90." href="#">Quero este plano</a>
+          <p class="ip-bf" id="ip-bf" hidden>Instalação grátis até 30/11</p>
+        </aside>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SEÇÃO DE PLANOS -->
-  <section id="planos" class="bg-[#0B0C0E] py-16 px-4 sm:px-8 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto space-y-10 relative z-10">
-      
-      <div class="space-y-1">
-        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
-          Escolha o seu novo <span class="text-gaucho-red">plano</span>
-        </h2>
-        <p class="text-slate-300 text-xs sm:text-sm font-medium">
-          Descubra os melhores planos residenciais e navegue sem limites!
-        </p>
+    <!-- PLANOS -->
+    <section class="secao" id="planos">
+      <div class="largura">
+        <div class="cabeca">
+          <h2>Escolha o seu plano</h2>
+          <p>Todos com internet ilimitada, Wi-Fi incluso e fidelidade de 12 meses. O preço é por mês.</p>
+        </div>
+        <div class="grupos" id="grupos"></div>
       </div>
+    </section>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-        
-        <!-- PLANO 1 -->
-        <div class="card-plan-neon rounded-xl p-5 flex flex-col justify-between">
-          <div class="space-y-4">
-            <div class="text-center font-black text-xs uppercase text-white tracking-wider">
-              GAÚCHO LIGHT
-            </div>
-            
-            <div class="flex items-center justify-center">
-              <span class="font-heading font-black text-6xl text-white tracking-tighter leading-none">100</span>
-              <span class="bg-gaucho-red text-white font-black text-[10px] px-1.5 py-0.5 rounded-r-md uppercase ml-0.5 self-center">mega</span>
-            </div>
-
-            <div class="pt-2">
-              <span class="inline-block bg-gaucho-red text-white text-[9px] font-black uppercase px-1.5 py-0.5 rounded mb-1">
-                APENAS
-              </span>
-              <div class="text-white font-extrabold text-sm flex items-baseline leading-none">
-                <span class="text-base mr-1">R$</span>
-                <span class="font-heading font-black text-5xl tracking-tight">59</span>
-                <span class="text-lg font-bold">,90</span>
-                <span class="text-[10px] text-slate-300 font-normal ml-1">/mês</span>
-              </div>
-            </div>
-
-            <div>
-              <span class="block text-center bg-gaucho-red text-white text-[10px] font-black uppercase py-1 px-3 rounded-full tracking-wide">
-                INSTALAÇÃO EM ATÉ 24H
-              </span>
-            </div>
-
-            <ul class="text-[11px] font-extrabold text-white space-y-2 pt-2 uppercase tracking-wide">
-              <li class="flex items-center gap-1.5"><span class="text-gaucho-red font-black text-sm">+</span> Wifi 5</li>
-              <li class="flex items-center gap-1.5"><span class="text-gaucho-red font-black text-sm">+</span> Supore humanizado</li>
-              <li class="flex items-center gap-1.5"><span class="text-gaucho-red font-black text-sm">+</span> Internet Ilimitada</li>
-            </ul>
-          </div>
-
-          <div class="pt-6">
-            <a href="https://wa.me/5551989687050?text=Quero%20o%20plano%20100Mega" target="_blank" class="btn-contratar-neon block text-center text-white font-black text-xs uppercase py-3 rounded-lg tracking-wider">
-              CONTRATAR
-            </a>
-          </div>
+    <!-- QUAL PLANO -->
+    <section class="secao secao-clara" id="qual-plano">
+      <div class="largura qp">
+        <div class="qp-texto">
+          <h2>Quem usa a internet aí?</h2>
+          <p>Conta quantas pessoas e aparelhos usam ao mesmo tempo. A gente mostra o plano que dá conta, sem você pagar pelo que não usa.</p>
+          <div class="contadores" id="contadores"></div>
         </div>
-
-        <!-- PLANO 2 -->
-        <div class="card-plan-neon rounded-xl p-5 flex flex-col justify-between">
-          <div class="space-y-4">
-            <div class="text-center font-black text-xs uppercase text-white tracking-wider">
-              GAÚCHO MAIS +
-            </div>
-            
-            <div class="flex items-center justify-center">
-              <span class="font-heading font-black text-6xl text-white tracking-tighter leading-none">200</span>
-              <span class="bg-gaucho-red text-white font-black text-[10px] px-1.5 py-0.5 rounded-r-md uppercase ml-0.5 self-center">mega</span>
-            </div>
-
-            <div class="pt-2">
-              <span class="inline-block bg-gaucho-red text-white text-[9px] font-black uppercase px-1.5 py-0.5 rounded mb-1">
-                APENAS
-              </span>
-              <div class="text-white font-extrabold text-sm flex items-baseline leading-none">
-                <span class="text-base mr-1">R$</span>
-                <span class="font-heading font-black text-5xl tracking-tight">69</span>
-                <span class="text-lg font-bold">,90</span>
-                <span class="text-[10px] text-slate-300 font-normal ml-1">/mês</span>
-              </div>
-            </div>
-
-            <div>
-              <span class="block text-center bg-gaucho-red text-white text-[10px] font-black uppercase py-1 px-3 rounded-full tracking-wide">
-                INSTALAÇÃO EM ATÉ 24H
-              </span>
-            </div>
-
-            <ul class="text-[11px] font-extrabold text-white space-y-2 pt-2 uppercase tracking-wide">
-              <li class="flex items-center gap-1.5"><span class="text-gaucho-red font-black text-sm">+</span> Wifi 5</li>
-              <li class="flex items-center gap-1.5"><span class="text-gaucho-red font-black text-sm">+</span> Supore humanizado</li>
-              <li class="flex items-center gap-1.5"><span class="text-gaucho-red font-black text-sm">+</span> Internet Ilimitada</li>
-            </ul>
-          </div>
-
-          <div class="pt-6">
-            <a href="https://wa.me/5551989687050?text=Quero%20o%20plano%20200Mega" target="_blank" class="btn-contratar-neon block text-center text-white font-black text-xs uppercase py-3 rounded-lg tracking-wider">
-              CONTRATAR
-            </a>
-          </div>
-        </div>
-
-        <!-- PLANO 3 -->
-        <div class="card-plan-neon rounded-xl p-5 flex flex-col justify-between">
-          <div class="space-y-4">
-            <div class="text-center font-black text-xs uppercase text-white tracking-wider">
-              GAÚCHO PLUS
-            </div>
-            
-            <div class="flex items-center justify-center">
-              <span class="font-heading font-black text-6xl text-white tracking-tighter leading-none">300</span>
-              <span class="bg-gaucho-red text-white font-black text-[10px] px-1.5 py-0.5 rounded-r-md uppercase ml-0.5 self-center">mega</span>
-            </div>
-
-            <div class="pt-2">
-              <span class="inline-block bg-gaucho-red text-white text-[9px] font-black uppercase px-1.5 py-0.5 rounded mb-1">
-                APENAS
-              </span>
-              <div class="text-white font-extrabold text-sm flex items-baseline leading-none">
-                <span class="text-base mr-1">R$</span>
-                <span class="font-heading font-black text-5xl tracking-tight">79</span>
-                <span class="text-lg font-bold">,90</span>
-                <span class="text-[10px] text-slate-300 font-normal ml-1">/mês</span>
-              </div>
-            </div>
-
-            <div>
-              <span class="block text-center bg-gaucho-red text-white text-[10px] font-black uppercase py-1 px-3 rounded-full tracking-wide">
-                INSTALAÇÃO EM ATÉ 24H
-              </span>
-            </div>
-
-            <ul class="text-[11px] font-extrabold text-white space-y-2 pt-2 uppercase tracking-wide">
-              <li class="flex items-center gap-1.5"><span class="text-gaucho-red font-black text-sm">+</span> Wifi 5</li>
-              <li class="flex items-center gap-1.5"><span class="text-gaucho-red font-black text-sm">+</span> Supore humanizado</li>
-              <li class="flex items-center gap-1.5"><span class="text-gaucho-red font-black text-sm">+</span> Internet Ilimitada</li>
-            </ul>
-          </div>
-
-          <div class="pt-6">
-            <a href="https://wa.me/5551989687050?text=Quero%20o%20plano%20300Mega" target="_blank" class="btn-contratar-neon block text-center text-white font-black text-xs uppercase py-3 rounded-lg tracking-wider">
-              CONTRATAR
-            </a>
-          </div>
-        </div>
-
-        <!-- PLANO 4 -->
-        <div class="card-plan-neon rounded-xl p-5 flex flex-col justify-between">
-          <div class="space-y-4">
-            <div class="text-center font-black text-xs uppercase text-white tracking-wider">
-              GAÚCHO ULTRA
-            </div>
-            
-            <div class="flex items-center justify-center">
-              <span class="font-heading font-black text-6xl text-white tracking-tighter leading-none">400</span>
-              <span class="bg-gaucho-red text-white font-black text-[10px] px-1.5 py-0.5 rounded-r-md uppercase ml-0.5 self-center">mega</span>
-            </div>
-
-            <div class="pt-2">
-              <span class="inline-block bg-gaucho-red text-white text-[9px] font-black uppercase px-1.5 py-0.5 rounded mb-1">
-                APENAS
-              </span>
-              <div class="text-white font-extrabold text-sm flex items-baseline leading-none">
-                <span class="text-base mr-1">R$</span>
-                <span class="font-heading font-black text-5xl tracking-tight">89</span>
-                <span class="text-lg font-bold">,90</span>
-                <span class="text-[10px] text-slate-300 font-normal ml-1">/mês</span>
-              </div>
-            </div>
-
-            <div>
-              <span class="block text-center bg-gaucho-red text-white text-[10px] font-black uppercase py-1 px-3 rounded-full tracking-wide">
-                INSTALAÇÃO EM ATÉ 24H
-              </span>
-            </div>
-
-            <ul class="text-[11px] font-extrabold text-white space-y-2 pt-2 uppercase tracking-wide">
-              <li class="flex items-center gap-1.5"><span class="text-gaucho-red font-black text-sm">+</span> Wifi 5</li>
-              <li class="flex items-center gap-1.5"><span class="text-gaucho-red font-black text-sm">+</span> Supore humanizado</li>
-              <li class="flex items-center gap-1.5"><span class="text-gaucho-red font-black text-sm">+</span> Internet Ilimitada</li>
-            </ul>
-          </div>
-
-          <div class="pt-6">
-            <a href="https://wa.me/5551989687050?text=Quero%20o%20plano%20400Mega" target="_blank" class="btn-contratar-neon block text-center text-white font-black text-xs uppercase py-3 rounded-lg tracking-wider">
-              CONTRATAR
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SEÇÃO CONTRATE AGORA & AUTOATENDIMENTO -->
-<section id="contato" class="bg-[#0B0C0E] py-16 px-4 sm:px-8 border-t border-white/10">
-  <div class="max-w-7xl mx-auto space-y-16">
-      
-      <!-- CANAIS DE ATENDIMENTO -->
-      <div class="space-y-8">
-        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-center text-white tracking-tight">
-          Contrate <span class="text-gaucho-red">agora</span>
-        </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          
-          <!-- BOTÃO WHATSAPP -->
-          <a href="https://wa.me/5551989687050" target="_blank" class="bg-zinc-900/80 hover:bg-zinc-800 border border-gaucho-red/30 hover:border-gaucho-red p-5 rounded-2xl flex items-center gap-4 transition-all group">
-            <div class="bg-gaucho-red text-white p-3 rounded-xl group-hover:scale-110 transition-transform">
-              <i data-lucide="message-square" class="w-7 h-7"></i>
-            </div>
-            <div>
-              <p class="text-xs text-slate-400 font-medium uppercase tracking-wider">Atendimento Rápido</p>
-              <p class="text-lg font-bold text-white">Chame no WhatsApp</p>
-            </div>
-          </a>
-
-          <!-- BOTÃO TELEFONE -->
-          <a href="tel:5551989687050" class="bg-zinc-900/80 hover:bg-zinc-800 border border-gaucho-red/30 hover:border-gaucho-red p-5 rounded-2xl flex items-center gap-4 transition-all group">
-            <div class="bg-gaucho-red text-white p-3 rounded-xl group-hover:scale-110 transition-transform">
-              <i data-lucide="mail" class="w-7 h-7"></i>
-            </div>
-            <div>
-              <p class="text-xs text-slate-400 font-medium uppercase tracking-wider">Atendimento por E-mail</p>
-              <p class="text-lg font-bold text-white">gauchostelecom@gmail.com</p>
-            </div>
-          </a>
-
+        <div class="qp-resultado" aria-live="polite">
+          <p class="qp-rotulo">O plano certo para a sua casa</p>
+          <p class="qp-mega" id="qp-mega">400 MEGA</p>
+          <p class="qp-grupo" id="qp-grupo">Gaúcho Mais+</p>
+          <p class="qp-preco" id="qp-preco">R$ 89,90 por mês</p>
+          <p class="qp-porque" id="qp-porque"></p>
+          <a class="botao botao-amarelo" id="qp-quero" href="#">Quero este plano</a>
         </div>
       </div>
+    </section>
 
-      <!-- AUTOATENDIMENTO PARA CLIENTES -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-gradient-to-r from-zinc-900 via-zinc-900/90 to-black p-6 sm:p-10 rounded-3xl border border-gaucho-red/20">
-        
-        <div class="lg:col-span-4 space-y-2">
-          <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-white leading-tight">
-            Autoatendimento <br><span class="text-gaucho-red">para clientes</span>
-          </h3>
-          <p class="text-slate-400 text-xs sm:text-sm">
-            Com poucos cliques você resolve o que precisa sem pegar filas.
-          </p>
+    <!-- VELOCIDADE -->
+    <section class="secao" id="velocidade">
+      <div class="largura">
+        <div class="cabeca">
+          <h2>Arrasta e vê a diferença</h2>
+          <p>Quanto tempo leva para baixar, comparado com uma internet de 50 MEGA.</p>
         </div>
-
-        <div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
-          
-          <a href="#" class="bg-zinc-800/60 hover:bg-gaucho-red/20 border border-white/10 hover:border-gaucho-red/50 p-4 rounded-xl flex flex-col items-center text-center transition-all group">
-            <div class="text-gaucho-red group-hover:scale-110 transition-transform mb-2">
-              <i data-lucide="file-text" class="w-7 h-7"></i>
-            </div>
-            <span class="text-xs font-bold text-white">Contrato SCM</span>
-          </a>
-
-          <a href="#" class="bg-zinc-800/60 hover:bg-gaucho-red/20 border border-white/10 hover:border-gaucho-red/50 p-4 rounded-xl flex flex-col items-center text-center transition-all group">
-            <div class="text-gaucho-red group-hover:scale-110 transition-transform mb-2">
-              <i data-lucide="barcode" class="w-7 h-7"></i>
-            </div>
-            <span class="text-xs font-bold text-white">2ª via do boleto/PIX</span>
-          </a>
-
-          <a href="https://wa.me/5551989687050" target="_blank" class="bg-zinc-800/60 hover:bg-gaucho-red/20 border border-white/10 hover:border-gaucho-red/50 p-4 rounded-xl flex flex-col items-center text-center transition-all group">
-            <div class="text-gaucho-red group-hover:scale-110 transition-transform mb-2">
-              <i data-lucide="messages-square" class="w-7 h-7"></i>
-            </div>
-            <span class="text-xs font-bold text-white">Atendimento via WhatsApp</span>
-          </a>
-
-          <a href="https://wa.me/5551989687050" target="_blank" class="bg-zinc-800/60 hover:bg-gaucho-red/20 border border-white/10 hover:border-gaucho-red/50 p-4 rounded-xl flex flex-col items-center text-center transition-all group">
-            <div class="text-gaucho-red group-hover:scale-110 transition-transform mb-2">
-              <i data-lucide="headphones" class="w-7 h-7"></i>
-            </div>
-            <span class="text-xs font-bold text-white">Solicitar suporte</span>
-          </a>
-
+        <div class="regua">
+          <label for="regua" class="oculto">Velocidade do plano</label>
+          <input type="range" id="regua" min="0" max="6" step="1" value="0" />
+          <div class="regua-marcas" id="regua-marcas" aria-hidden="true"></div>
         </div>
-
+        <div class="vel">
+          <div class="vel-plano">
+            <p class="vel-grupo" id="vel-grupo"></p>
+            <p class="vel-mega" id="vel-mega"></p>
+            <p class="vel-preco" id="vel-preco"></p>
+            <a class="botao botao-amarelo" id="vel-quero" href="#">Contratar pelo WhatsApp</a>
+          </div>
+          <div class="corrida" id="corrida"></div>
+        </div>
+        <p class="nota">Tempos aproximados, com a conexão bem aproveitada e o aparelho no cabo ou perto do roteador.</p>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- SEÇÃO CIDADES ATENDIDAS -->
-  <section id="cobertura" class="bg-white text-slate-800 py-16 px-4 sm:px-8 border-t-4 border-gaucho-red">
-  <div class="max-w-7xl mx-auto space-y-10">
-      
-      <div class="space-y-1">
-        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
-          Conheça as <span class="text-gaucho-red">cidades que atendemos</span>
-        </h2>
-        <p class="text-slate-500 text-xs sm:text-sm font-medium">
-          Estamos em expansão constante para levar a melhor conexão de fibra óptica até você.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <!-- CARD CIDADE 1 -->
-        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center space-y-3 hover:shadow-lg hover:border-gaucho-red/40 transition-all">
-          <div class="text-gaucho-red flex justify-center">
-            <i data-lucide="map-pin" class="w-8 h-8"></i>
-          </div>
-          <div>
-            <h3 class="font-extrabold text-lg text-slate-900">Canoas - RS</h3>
-            <p class="text-xs text-slate-500 mt-1">Atendimento comercial e cobertura de fibra óptica residencial.</p>
-          </div>
+    <!-- COBERTURA -->
+    <section class="secao secao-verde" id="cobertura">
+      <span class="canto canto-b" aria-hidden="true"><i></i><i></i><i></i></span>
+      <div class="largura cob">
+        <div class="cob-texto">
+          <h2>Será que a fibra chega aí?</h2>
+          <p>Digite o CEP e o número da casa. A gente confere no mapa da rede na hora.</p>
+          <p class="cob-cidades">Atendemos <strong>Canoas</strong> e <strong>Viamão</strong>. Outro lugar? Fale com a gente.</p>
         </div>
-
-        <!-- CARD CIDADE 2 -->
-        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center space-y-3 hover:shadow-lg hover:border-gaucho-red/40 transition-all">
-          <div class="text-gaucho-red flex justify-center">
-            <i data-lucide="map-pin" class="w-8 h-8"></i>
+        <form class="cob-form" id="cob-form" novalidate>
+          <div class="campos-2">
+            <label>CEP<input id="cep" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" maxlength="9" required /></label>
+            <label>Número<input id="numero" autocomplete="address-line2" placeholder="Nº" maxlength="10" required /></label>
           </div>
-          <div>
-            <h3 class="font-extrabold text-lg text-slate-900">Viamão - RS</h3>
-            <p class="text-xs text-slate-500 mt-1">Atendimento comercial e cobertura de fibra óptica residencial.</p>
-          </div>
-        </div>
-
-        <!-- CARD CIDADE 3 -->
-        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center space-y-3 hover:shadow-lg hover:border-gaucho-red/40 transition-all">
-          <div class="text-gaucho-red flex justify-center">
-            <i data-lucide="map-pin" class="w-8 h-8"></i>
-          </div>
-          <div>
-            <h3 class="font-extrabold text-lg text-slate-900">Porto Alegre e Região</h3>
-            <p class="text-xs text-slate-500 mt-1">Consulte cobertura para o seu bairro pelo atendimento.</p>
-          </div>
-        </div>
-
-        <!-- CARD CIDADE 4 -->
-        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center space-y-3 hover:shadow-lg hover:border-gaucho-red/40 transition-all">
-          <div class="text-gaucho-red flex justify-center">
-            <i data-lucide="globe" class="w-8 h-8"></i>
-          </div>
-          <div>
-            <h3 class="font-extrabold text-lg text-slate-900">Sua Cidade</h3>
-            <p class="text-xs text-slate-500 mt-1">Quer a Gaúchos Telecom no seu bairro? Fale conosco!</p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SEÇÃO FALE CONOSCO (ESTILO EXATO DA IMAGEM) -->
-  <section id="suporte" class="bg-white text-slate-800 py-16 px-4 sm:px-8 border-t border-slate-200">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-      
-      <!-- FORMULÁRIO (ESQUERDA) -->
-      <div class="lg:col-span-6 bg-white border border-gaucho-red/40 rounded-2xl p-6 sm:p-8 shadow-sm">
-        <h3 class="font-heading font-black text-2xl text-slate-900 mb-6">Fale conosco</h3>
-        
-        <form action="#" method="POST" class="space-y-4">
-          <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Seu nome</label>
-            <input type="text" placeholder="" class="w-full px-4 py-2 text-sm border border-slate-300 rounded-full focus:outline-none focus:border-gaucho-red" required />
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-xs font-semibold text-slate-700 mb-1">Seu e-mail</label>
-              <input type="email" placeholder="" class="w-full px-4 py-2 text-sm border border-slate-300 rounded-full focus:outline-none focus:border-gaucho-red" required />
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-slate-700 mb-1">WhatsApp</label>
-              <input type="tel" placeholder="" class="w-full px-4 py-2 text-sm border border-slate-300 rounded-full focus:outline-none focus:border-gaucho-red" required />
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Assunto</label>
-            <select class="w-full px-4 py-2 text-sm border border-slate-300 rounded-full focus:outline-none focus:border-gaucho-red text-slate-600 bg-white">
-              <option value="">Selecione um assunto</option>
-              <option value="duvidas">Dúvidas sobre planos</option>
-              <option value="suporte">Suporte Técnico</option>
-              <option value="financeiro">Financeiro / 2ª Via</option>
-              <option value="outro">Outros</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Mensagem</label>
-            <textarea rows="4" placeholder="Mensagem" class="w-full px-4 py-2 text-sm border border-slate-300 rounded-2xl focus:outline-none focus:border-gaucho-red resize-none"></textarea>
-          </div>
-
-          <div class="flex justify-end pt-2">
-            <button type="submit" class="bg-gaucho-red hover:bg-gaucho-redHover text-white font-bold text-sm px-8 py-2.5 rounded-lg transition-colors">
-              Enviar
-            </button>
-          </div>
+          <p class="cob-rua" id="cob-rua" aria-live="polite"></p>
+          <button class="botao botao-amarelo botao-grande" type="submit" id="cob-botao">Consultar</button>
+          <button class="link-botao" type="button" id="cob-local">Estou em casa: usar a minha localização</button>
+          <div class="cob-resposta" id="cob-resposta" aria-live="polite" hidden></div>
         </form>
       </div>
+    </section>
 
-      <!-- DADOS DA EMPRESA E HORÁRIOS (DIREITA) -->
-      <div class="lg:col-span-6 space-y-8 lg:pl-6 pt-2">
-        
+    <!-- INSTALAÇÃO GRÁTIS -->
+    <section class="secao" id="instalacao">
+      <div class="largura inst">
         <div>
-          <h3 class="font-heading font-black text-xl text-slate-900 uppercase tracking-tight mb-4">
-            GAÚCHOS TELECOM LTDA
-          </h3>
-
-          <ul class="space-y-3 text-xs sm:text-sm font-medium text-slate-700">
-            <li class="flex items-center gap-2.5">
-              <i data-lucide="file-badge-2" class="w-4 h-4 text-gaucho-red shrink-0"></i>
-              <span>CNPJ: 53.138.221/0001-97</span>
-            </li>
-            <li class="flex items-center gap-2.5">
-              <i data-lucide="map-pin" class="w-4 h-4 text-gaucho-red shrink-0"></i>
-              <span>Rio Grande do Sul</span>
-            </li>
-            <li class="flex items-center gap-2.5">
-              <i data-lucide="phone" class="w-4 h-4 text-gaucho-red shrink-0"></i>
-              <span>(51) 98968-7050</span>
-            </li>
-          </ul>
+          <h2>Instalação grátis para quem vem de outro provedor</h2>
+          <p>Mostre que você é um bom pagador e a gente instala sem cobrar a taxa.</p>
+          <ol class="passos">
+            <li><strong>Separe os 3 últimos comprovantes</strong> pagos do seu provedor atual, no nome do titular.</li>
+            <li><strong>Mande pelo WhatsApp</strong> junto com o endereço.</li>
+            <li><strong>A gente confere e agenda</strong> a instalação sem a taxa.</li>
+          </ol>
+          <a class="botao botao-verde" data-zap="Olá! Quero a instalação grátis. Tenho os 3 últimos comprovantes do meu provedor atual." href="#">Quero a instalação grátis</a>
         </div>
-
-        <div class="space-y-3">
-          <h4 class="font-heading font-bold text-lg text-slate-900">Horário de atendimento:</h4>
-          
-          <ul class="space-y-2 text-xs sm:text-sm font-medium text-slate-700">
-            <li class="flex items-center gap-2.5">
-              <i data-lucide="clock" class="w-4 h-4 text-gaucho-red shrink-0"></i>
-              <span>Segunda a sexta das 8h às 18h</span>
-            </li>
-            <li class="flex items-center gap-2.5">
-              <i data-lucide="clock" class="w-4 h-4 text-gaucho-red shrink-0"></i>
-              <span>Sábado das 8h às 18h</span>
-            </li>
-          </ul>
+        <div class="taxa">
+          <p class="taxa-rotulo">Taxa de instalação</p>
+          <p class="taxa-de"><s>R$ 80,00</s></p>
+          <p class="taxa-por">R$ 0</p>
+          <p class="taxa-nota">Sem os comprovantes, a taxa é de R$ 80,00, paga ao técnico no dia, em dinheiro ou Pix.</p>
         </div>
-
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- RODAPÉ NOVO COMPLETO (BASEADO NO PRINT) -->
-  <footer class="bg-zinc-950 text-white pt-12 pb-6 px-4 sm:px-8 border-t border-gaucho-red">
-    <div class="max-w-7xl mx-auto space-y-12">
-      
-      <!-- GRID DE CONTEÚDO DO RODAPÉ -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-        <!-- COLUNA 1: LINKS ÚTEIS -->
-        <div class="space-y-3">
-          <h4 class="font-heading font-extrabold text-base text-white">Links úteis</h4>
-          <ul class="space-y-1.5 text-xs text-slate-400 font-medium">
-            <li><a href="#inicio" class="hover:text-gaucho-red transition-colors">Início</a></li>
-            <li><a href="#sobre" class="hover:text-gaucho-red transition-colors">Sobre</a></li>
-            <li><a href="#planos" class="hover:text-gaucho-red transition-colors">Planos</a></li>
-            <li><a href="#suporte" class="hover:text-gaucho-red transition-colors">Suporte</a></li>
-            <li><a href="#contato" class="hover:text-gaucho-red transition-colors">Contato</a></li>
-          </ul>
+    <!-- SOU CLIENTE -->
+    <section class="secao secao-clara" id="cliente">
+      <div class="largura">
+        <div class="cabeca">
+          <h2>Já é Gaúchos? Resolve por aqui</h2>
+          <p id="aberto" class="aberto"></p>
         </div>
-
-        <!-- COLUNA 2: HORÁRIO & TELEFONE -->
-        <div class="space-y-4">
-          <div class="space-y-2">
-            <h4 class="font-heading font-extrabold text-base text-white">Horário de atendimento</h4>
-            <ul class="space-y-1.5 text-xs text-slate-400 font-medium">
-              <li class="flex items-center gap-2">
-                <i data-lucide="clock" class="w-3.5 h-3.5 text-gaucho-red"></i> Segunda a sexta das 8h às 18h
-              </li>
-              <li class="flex items-center gap-2">
-                <i data-lucide="clock" class="w-3.5 h-3.5 text-gaucho-red"></i> Sábado das 8h às 12h
-              </li>
-            </ul>
-          </div>
-
-          <div class="space-y-1.5 pt-2">
-            <h4 class="font-heading font-extrabold text-base text-white">Telefone</h4>
-            <p class="text-xs text-slate-400 font-medium flex items-center gap-2">
-              <i data-lucide="phone" class="w-3.5 h-3.5 text-gaucho-red"></i> (51) 98968-7050
-            </p>
-          </div>
-        </div>
-
-        <!-- COLUNA 3: NOSSAS REDES -->
-        <div class="space-y-3">
-          <h4 class="font-heading font-extrabold text-base text-white">Nossas redes</h4>
-          <div class="flex items-center gap-3">
-            <!-- FACEBOOK -->
-            <a href="https://www.facebook.com/profile.php?id=61554386847434" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-10 h-10 rounded-full bg-gaucho-red flex items-center justify-center text-white hover:opacity-90 transition-opacity">
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
-            </a>
-            <!-- INSTAGRAM (SVG DIRETO) -->
-            <a href="https://www.instagram.com/gauchostelecom/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-10 h-10 rounded-full bg-gaucho-red flex items-center justify-center text-white hover:opacity-90 transition-opacity">
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-      <!-- LINHA DIVISÓRIA -->
-      <div class="pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
-        
-        <!-- LOGO & ENDEREÇO INFERIOR -->
-        <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-          <img src="https://i.ibb.co/qLpbRfM6/Design-sem-nome.png" alt="Gaúchos Telecom" class="h-8 w-auto object-contain brightness-0 invert" />
-          <div>
-            <p>Atendimento em Canoas e Viamão / RS. Telefone: (51) 998968-7050.</p>
-            <p>CNPJ: 53.138.221/0001-97</p>
-          </div>
-        </div>
-
-        <!-- DESENVOLVIDO POR -->
-        <div class="flex items-center justify-center md:justify-end gap-2">
-          <span class="text-xs text-slate-400 font-medium">Desenvolvido por:</span>
-          <a href="https://wiadigital.com.br/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center transition-opacity hover:opacity-80">
-            <img src="https://i.ibb.co/0ph5hPJL/logo-wiadigital-12.png" alt="WIA Digital" class="h-5 w-auto object-contain" />
+        <div class="cartoes">
+          <a class="cartao" data-zap="Olá! Preciso da segunda via da minha fatura. Meu nome completo e CPF do titular são: " href="#">
+            <strong>Segunda via e Pix</strong><span>Mande o nome completo e o CPF do titular que a gente manda o Pix copia e cola e o código de barras.</span>
+          </a>
+          <a class="cartao" data-zap="Olá! Estou com problema na internet." href="#">
+            <strong>Suporte técnico</strong><span>Internet lenta ou sem sinal? Antes, desligue o aparelho da fibra e o roteador por 2 minutos.</span>
+          </a>
+          <a class="cartao" data-zap="Olá! Já paguei a fatura e vou mandar o comprovante." href="#">
+            <strong>Mandar comprovante</strong><span>Pagou e ainda aparece em aberto? Mande o comprovante que a gente confere.</span>
+          </a>
+          <a class="cartao" href="https://www.speedtest.net/pt" target="_blank" rel="noopener">
+            <strong>Teste de velocidade</strong><span>Faça o teste no cabo ou perto do roteador para ver a velocidade de verdade.</span>
           </a>
         </div>
-
       </div>
+    </section>
 
+    <!-- PERGUNTAS -->
+    <section class="secao" id="perguntas">
+      <div class="largura perguntas">
+        <h2>Perguntas que a gente mais ouve</h2>
+        <details><summary>Quanto tempo demora a instalação?</summary><p>Depois que você manda os documentos, a gente agenda a visita por turno, de manhã ou de tarde. Precisa ter alguém maior de 18 anos em casa para receber o técnico.</p></details>
+        <details><summary>O roteador está incluso?</summary><p>Sim. O aparelho da fibra e o roteador Wi-Fi ficam com você em comodato enquanto for cliente.</p></details>
+        <details><summary>O que é a fidelidade de 12 meses?</summary><p>É o tempo mínimo do contrato. Com ela você paga o preço promocional do plano. Cancelando antes, pode haver multa proporcional aos meses que faltam.</p></details>
+        <details><summary>Como eu pago a fatura?</summary><p>Por Pix copia e cola, QR Code Pix ou código de barras, no banco, na lotérica ou no app do seu banco.</p></details>
+        <details><summary>Vou trocar de operadora. Quando cancelo a antiga?</summary><p>Só depois que a internet da Gaúchos estiver instalada e funcionando. Assim você não fica sem internet nem um dia.</p></details>
+        <details><summary>Atendem a minha rua?</summary><p>Atendemos Canoas e Viamão, mas a fibra ainda não chega em todas as ruas. Faça a consulta pelo CEP aqui no site ou mande o endereço no WhatsApp.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <span class="canto canto-c" aria-hidden="true"><i></i><i></i><i></i></span>
+    <div class="largura rodape-dentro">
+      <div>
+        <img src="/assets/logo-branca.png" alt="Gaúchos Telecom" width="214" height="49" />
+        <p class="rodape-slogan">Internet de gaúcho pra gaúcho.</p>
+        <p>GAÚCHOS TELECOM LTDA · CNPJ 53.138.221/0001-97</p>
+        <p>Canoas e Viamão · RS</p>
+      </div>
+      <div>
+        <h3>Atendimento</h3>
+        <p>Segunda a sexta: 9h às 22h<br />Sábado: 9h às 20h<br />Domingo: 14h às 18h</p>
+      </div>
+      <div>
+        <h3>Fale com a gente</h3>
+        <p><a data-zap="Olá! Vim pelo site da Gaúchos Telecom." href="#">WhatsApp (51) 98968-7050</a><br />
+          <a href="mailto:gauchostelecom@gmail.com">gauchostelecom@gmail.com</a><br />
+          <a href="https://www.instagram.com/gauchostelecom/" target="_blank" rel="noopener">Instagram</a> ·
+          <a href="https://www.facebook.com/profile.php?id=61554386847434" target="_blank" rel="noopener">Facebook</a></p>
+      </div>
+    </div>
+    <div class="largura credito">
+      <a href="https://wiadigital.com.br/" target="_blank" rel="noopener">Site feito pela <img src="/assets/wia-digital.png" alt="Wia Digital" width="71" height="32" /></a>
     </div>
   </footer>
 
-  <!-- BOTÃO FLUTUANTE WHATSAPP -->
-  <a href="https://wa.me/5551989687050" target="_blank" rel="noopener noreferrer" aria-label="Atendimento via WhatsApp" class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20ba5a] text-white p-3.5 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center">
-    <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
-      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-    </svg>
-  </a>
+  <!-- Janela "Quero a fibra em casa" -->
+  <dialog class="janela" id="janela">
+    <form id="form-pedido" method="dialog" novalidate>
+      <button class="fechar" type="button" id="fechar" aria-label="Fechar">Fechar</button>
+      <h2>Quero a fibra em casa</h2>
+      <p class="janela-sub">Preencha e a gente chama você no WhatsApp para agendar a instalação.</p>
+      <p class="janela-end" id="janela-end"></p>
+      <label>Nome completo<input name="nome" autocomplete="name" required maxlength="80" /></label>
+      <label>WhatsApp<input name="telefone" inputmode="tel" autocomplete="tel" placeholder="(51) 90000-0000" required maxlength="16" /></label>
+      <label>Complemento<input name="complemento" placeholder="Casa, apto, bloco" maxlength="80" /></label>
+      <label>Plano que interessa<select name="plano" id="sel-plano"></select></label>
+      <label>Melhor horário para falar<select name="periodo"><option>Tanto faz</option><option>Manhã</option><option>Tarde</option><option>Noite</option></select></label>
+      <label class="escondido" aria-hidden="true">Site<input name="site_web" tabindex="-1" autocomplete="off" /></label>
+      <label class="aceite"><input type="checkbox" name="aceite" required /> Concordo em ser chamado pela Gaúchos Telecom no WhatsApp ou por telefone sobre a instalação.</label>
+      <p class="erro" id="pedido-erro" role="alert" hidden></p>
+      <button class="botao botao-amarelo botao-grande" type="submit" id="pedido-botao">Enviar o pedido</button>
+    </form>
+    <div class="pedido-ok" id="pedido-ok" hidden>
+      <h2>Pedido recebido</h2>
+      <p>Em breve a gente chama você no WhatsApp. Se preferir, fale agora com a gente.</p>
+      <a class="botao botao-amarelo" data-zap="Olá! Acabei de fazer um pedido de internet pelo site." href="#">Falar no WhatsApp agora</a>
+    </div>
+  </dialog>
 
-  <script>
-    lucide.createIcons();
-  </script>
+  <script src="/assets/site.js" defer></script>
 </body>
 </html>
