@@ -2,7 +2,7 @@
 // A consulta de cobertura e o pedido vão para o servidor (mesmo endereço do site), que confere no mapa da rede.
 (() => {
   const ZAP = '5551989687050';
-  const FIM_BLACK_FRIDAY = new Date('2026-12-01T00:00:00-03:00');
+  const FIM_PROMO = new Date('2027-01-01T00:00:00-03:00'); // Promoção de Natal: até 31/12
 
   const PLANOS = [
     { grupo: 'Gaúcho Mais+', mega: 400, preco: 89.9, uso: 'Casa com até 4 pessoas, TV e celulares ao mesmo tempo.' },
@@ -32,8 +32,8 @@
     $$('[data-zap]', raiz).forEach((a) => { a.href = zap(a.dataset.zap); a.target = '_blank'; a.rel = 'noopener'; });
   }
 
-  // Black Friday: some sozinha depois de 30/11
-  if (new Date() < FIM_BLACK_FRIDAY) { $('#faixa-bf').hidden = false; $('#ip-bf').hidden = false; }
+  // Promoção de Natal: some sozinha depois de 31/12
+  if (new Date() < FIM_PROMO) { $('#faixa-bf').hidden = false; $('#ip-bf').hidden = false; }
 
   // Menu do celular
   const menuBotao = $('#menu-botao');

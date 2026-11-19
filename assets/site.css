@@ -83,6 +83,23 @@ h2 { font-size: clamp(1.8rem, 1.2rem + 2vw, 2.6rem); color: var(--pampa); }
   radial-gradient(700px 520px at 85% 20%, rgba(31, 157, 91, .35), transparent 70%),
   linear-gradient(160deg, #0f6040 0%, #0b4a30 55%, #073a25 100%); }
 .inicio::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 48px 48px; -webkit-mask-image: radial-gradient(ellipse at 60% 40%, #000 25%, transparent 80%); mask-image: radial-gradient(ellipse at 60% 40%, #000 25%, transparent 80%); }
+.ip-caixa { position: relative; isolation: isolate; }
+.ip-caixa .inicio-plano { position: relative; background: rgba(6, 48, 31, .62); backdrop-filter: blur(6px); border-color: rgba(247, 197, 49, .28); }
+/* luz correndo na borda do cartão, como sinal na fibra */
+@property --ip-ang { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+.ip-caixa .inicio-plano::before { content: ''; position: absolute; inset: -1px; border-radius: inherit; padding: 1.5px; pointer-events: none;
+  background: conic-gradient(from var(--ip-ang), transparent 0 70%, rgba(247, 197, 49, .2) 78%, var(--sol) 88%, #fff 90%, transparent 92%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  animation: ip-giro 6s linear infinite; }
+@keyframes ip-giro { to { --ip-ang: 360deg; } }
+.inicio-fibras { position: absolute; left: 50%; top: 50%; width: 900px; height: 700px; transform: translate(-50%, -50%); z-index: -1; pointer-events: none;
+  -webkit-mask-image: radial-gradient(closest-side, #000 65%, transparent 100%); mask-image: radial-gradient(closest-side, #000 65%, transparent 100%); }
+.fibra-base path { fill: none; stroke: rgba(255, 255, 255, .14); stroke-width: 1.4; }
+.fibra-pulsos path { fill: none; stroke-width: 2.6; stroke-linecap: round; stroke-dasharray: 110 890; stroke-dashoffset: 1000; animation: fibra-luz linear infinite; filter: drop-shadow(0 0 5px currentColor); opacity: .9; }
+.pulso-sol { stroke: var(--sol); color: var(--sol); }
+.pulso-campo { stroke: #5fe39a; color: #5fe39a; }
+.pulso-brasa { stroke: #ff6a55; color: #ff6a55; opacity: .7 !important; }
+@keyframes fibra-luz { to { stroke-dashoffset: 0; } }
 .inicio-dentro { position: relative; z-index: 1; display: grid; grid-template-columns: 1.25fr .85fr; gap: 56px; align-items: center; padding: 76px 0 96px; }
 .sobretitulo { color: var(--sol); font-weight: 600; margin-bottom: 16px; }
 .inicio h1 { font-size: clamp(2.4rem, 1.4rem + 4vw, 4.3rem); max-width: 14ch; }
@@ -297,6 +314,7 @@ details p { color: var(--suave); padding: 0 0 20px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .fibra-pulsos, .ip-caixa .inicio-plano::before { display: none; }
   * { transition: none !important; }
 }
 @media (max-width: 600px) {
