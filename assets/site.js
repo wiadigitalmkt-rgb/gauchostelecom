@@ -33,8 +33,7 @@
   }
 
   // Promoção de Natal: some sozinha depois de 31/12
-  if (new Date() < FIM_PROMO) { $('#faixa-bf').hidden = false; $('#ip-bf').hidden = false; }
-  else { $$('.so-promo').forEach((e) => { e.hidden = true; }); $$('.sem-promo').forEach((e) => { e.hidden = false; }); }
+  if (new Date() < FIM_PROMO) { $('#faixa-bf').hidden = false; }
 
   // Menu do celular
   const menuBotao = $('#menu-botao');
